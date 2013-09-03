@@ -126,11 +126,12 @@ Provides:       %{?scl_prefix}%{php_base}-pecl-apc-devel%{?_isa} = %{version}-%{
 These are the files needed to compile programs using APCu.
 
 
-#%package -n %{?scl_prefix}apcu-panel
-%package -n %{?scl_prefix}%{php_base}-pecl-apcu-panel
+%package -n %{?scl_prefix}apcu-panel54
 Summary:       APCu control panel
 Group:         Applications/Internet
+%if 0%{?rhel} >= 6
 BuildArch:     noarch
+%endif
 Requires:      %{name} = %{version}-%{release}
 Requires:      %{?scl_prefix}mod_php, httpd, %{?scl_prefix}php-gd
 %if 0%{?fedora} < 20
@@ -141,7 +142,7 @@ Provides:       %{?scl_prefix}apc-panel = %{version}-%{release}
 Provides:       %{?scl_prefix}%{php_base}-pecl-apc-panel = %{version}-%{release}
 %endif
 
-%description  -n %{?scl_prefix}%{php_base}-pecl-apcu-panel
+%description  -n %{?scl_prefix}apcu-panel54
 This package provides the APCu control panel, with Apache
 configuration, available on http://localhost/apcu-panel/
 
@@ -271,7 +272,7 @@ fi
 %{php_ztsincldir}/ext/%{pecl_name}
 %endif
 
-%files -n %{?scl_prefix}%{php_base}-pecl-apcu-panel
+%files -n %{?scl_prefix}apcu-panel54
 %defattr(-,root,root,-)
 # Need to restrict access, as it contains a clear password
 %attr(750,apache,root) %dir %{_sysconfdir}/%{?scl_prefix}apcu-panel
