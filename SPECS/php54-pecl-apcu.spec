@@ -24,7 +24,7 @@
 Name:           %{?scl_prefix}%{php_base}-pecl-apcu
 Summary:        APC User Cache
 Version:        4.0.1
-Release:        4.ius%{?dist}
+Release:        5.ius%{?dist}
 Source0:        http://pecl.php.net/get/%{pecl_name}-%{version}.tgz
 Source1:        %{pecl_name}.ini
 Source2:        %{pecl_name}-panel.conf
@@ -111,7 +111,7 @@ superior support for local storage of PHP variables.
 Summary:       APCu developer files (header)
 Group:         Development/Libraries
 Requires:      %{name}%{?_isa} = %{version}-%{release}
-Requires:      %{?scl_prefix}%php_base}-devel%{?_isa}
+Requires:      %{?scl_prefix}%{php_base}-devel%{?_isa}
 %if 0%{?fedora} < 20
 Conflicts:      %{?scl_prefix}php-pecl-apc-devel < 4
 %else
@@ -133,7 +133,7 @@ Group:         Applications/Internet
 BuildArch:     noarch
 %endif
 Requires:      %{name} = %{version}-%{release}
-Requires:      %{?scl_prefix}mod_php, httpd, %{?scl_prefix}php-gd
+Requires:      %{?scl_prefix}mod_php, httpd, %{?scl_prefix}%{php_base}-gd
 %if 0%{?fedora} < 20
 Conflicts:      %{?scl_prefix}apc-panel < 4
 %else
@@ -282,6 +282,9 @@ fi
 
 
 %changelog
+* Fri Sep 06 2013 Ben Harper <ben.harper@rackspace.com> - 4.0.1-5.ius
+- update in Requires for devel and apcu-panel
+
 * Fri Aug 30 2013 Ben Harper <ben.harper@rackspace.com> - 4.0.1-4.ius
 - porting from EPEL 
 
